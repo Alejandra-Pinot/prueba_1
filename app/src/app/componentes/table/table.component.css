@@ -1,0 +1,51 @@
+.cargando{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contenedor{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    padding-top: 2%;
+  }
+
+  .contenedor2{
+    display: flex;
+   
+    justify-content: center;
+    padding-top: 1%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 80%;
+    padding-right: 1%;
+  }
+  
+  table {
+    width: 91%;
+  }
+  
+  /*td, th {
+    width: 15%;
+  }*/
+  
+  .indice{
+    width:12%; 
+  }
+
+  .estado{
+    width:12%; 
+  }
+
+  .acciones{
+    width: 20%;
+  }
+
+  .motivo{
+    width: 12%;
+  }
+  

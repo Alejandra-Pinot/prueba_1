@@ -1,0 +1,65 @@
+<div class="cargando" *ngIf="!view">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="contenedor2" *ngIf="view">
+    <mat-form-field>
+       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
+   </mat-form-field>
+   <button mat-raised-button color="primary" (click)="create()">Agregar</button>
+
+</div>
+  
+<div class="contenedor" *ngIf="view">
+     
+    <table mat-table [dataSource]="data" class="mat-elevation-z8">
+        <ng-container matColumnDef="numero">
+            <th class="indice" mat-header-cell *matHeaderCellDef> No. </th>
+            <td class="indice" mat-cell *matCellDef="let row; let i = index;">{{i+1}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="motivo" >
+            <th class="motivo" mat-header-cell *matHeaderCellDef> Motivo </th>
+            <td class="motivo" mat-cell *matCellDef="let row;">{{row.motivo}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="descripcion">
+            <th mat-header-cell *matHeaderCellDef> Descripción 
+                    <button mat-icon-button color="primary" *ngIf="asc" (click)="orderData()">
+                        <mat-icon>arrow_upward</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" *ngIf="!asc" (click)="orderData()">
+                        <mat-icon>arrow_downward</mat-icon>
+                    </button>
+            </th>
+            <td mat-cell *matCellDef="let row;">{{row.des_motivo}}</td >
+        </ng-container>
+  
+        <ng-container matColumnDef="estado">
+            <th class="estado" mat-header-cell *matHeaderCellDef> Estado </th>
+            <td class="estado" mat-cell *matCellDef="let row;">{{row.estado}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="tipo">
+                <th class="estado" mat-header-cell *matHeaderCellDef> tipo </th>
+                <td class="estado" mat-cell *matCellDef="let row;">{{row.tipo}}</td>
+            </ng-container>
+  
+        <ng-container matColumnDef="acciones">
+            <th class="acciones" mat-header-cell *matHeaderCellDef> Acciones </th>
+            <td class="acciones" mat-cell *matCellDef="let row;">
+                <button mat-icon-button  (click)="edit(row)" color="primary">
+                    <mat-icon>edit</mat-icon>
+                </button>
+  
+                <button mat-icon-button  (click)="delete(row)" color="warn">
+                    <mat-icon>delete</mat-icon>
+                </button>
+  
+            </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index"></tr>
+  
+    </table> 
+  </div>
